@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <span *ngIf="!showResultPage">
+        {{ index + 1 }} / {{ words ? words.length : 0 }}
+      </span>
+      <span *ngIf="showResultPage">
+        Eredmény
+      </span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="word && !showResultPage" class="word-wrapper" [ngClass]="status">
+    <div class="word">
+      {{ word.original }}
+    </div>
+    <div class="right-answer" *ngIf="submitted">
+      -
+      <br>
+      {{ word.translate }}
+    </div>
+  </div>
+  <div *ngIf="showResultPage" class='result-list'>
+    <div class="correct-words">
+      <div class="word-item" *ngFor="let word of correctWords">{{word.original}}-{{word.translate}}</div>
+    </div>
+    <div class="wrong-words">
+      <div class="word-item" *ngFor="let word of wrongWords">{{word.original}}-{{word.translate}}</div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="!showResultPage">
+  <form (ngSubmit)="onSubmit()">
+    <ion-list lines='none'>
+      <ion-item>
+        <ion-input type="text" placeholder="answer" (keyup.enter)="onSubmit()" [(ngModel)]="answer" name='answer' [disabled]='submitted'></ion-input>
+        <ion-buttons slot="end">
+          <ion-button *ngIf="!submitted" type='submit'>
+            <ion-icon name="send"></ion-icon>
+          </ion-button>
+          <ion-button type='button' *ngIf="submitted" (click)="next()">
+            Next
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-footer>

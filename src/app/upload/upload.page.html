@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>upload</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>Kategória választó</ion-list-header>
+    <ion-item>
+      <ion-label>Kategória</ion-label>
+      <ion-select placeholder="Válassz" [(ngModel)]="category">
+        <ion-select-option *ngFor="let category of categories | async" [value]="category.name">{{category.title}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-list-header>A szó</ion-list-header>
+    <ion-item>
+      <ion-input type="text" placeholder="Oroszul" [(ngModel)]="originalWord" name='original'></ion-input>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label>Nyelv</ion-label>
+      <ion-select placeholder="Válassz">
+        <ion-select-option value="hu">Magyar</ion-select-option>
+        <ion-select-option value="ru">Orosz</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+    <!-- <ion-list-header>Oroszul</ion-list-header> -->
+    <ion-item>
+      <ion-input type="text" placeholder="Magyarul" [(ngModel)]="translateWord" name='translate'></ion-input>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label>Nyelv</ion-label>
+      <ion-select placeholder="Válassz">
+        <ion-select-option value="hu">Magyar</ion-select-option>
+        <ion-select-option value="ru">Orosz</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+  </ion-list>
+  <ion-button expand="full" (click)="save()">Mentés</ion-button>
+</ion-content>

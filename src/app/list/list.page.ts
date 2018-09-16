@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { Category } from '../../interfaces/category.interface';
+
 
 @Component({
   selector: 'app-list',
@@ -6,28 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  private categoryCollection: AngularFirestoreCollection<Category>;
+  public categories: Observable<Category[]>;
+
+  constructor(
+    private db: AngularFirestore,
+  ) {
+    this.categoryCollection = this.db.collection('categories');
+    this.categories = this.categoryCollection.valueChanges();
   }
 
   ngOnInit() {

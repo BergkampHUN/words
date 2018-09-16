@@ -12,9 +12,16 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomePageModule'
   },
   {
-    path: 'list',
+    path: 'categories',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },
+  { path: 'play/:category',
+    loadChildren: './play/play.module#PlayPageModule'
+  },
+  {
+    path: 'upload',
+    loadChildren: './upload/upload.module#UploadPageModule'
+  },
 ];
 
 @NgModule({

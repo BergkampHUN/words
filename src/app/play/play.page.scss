@@ -1,0 +1,54 @@
+.word-wrapper {
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &.default {
+    background-color: blue;
+  }
+
+  &.correct {
+    background-color: green;
+  }
+
+  &.wrong {
+    background-color: red;
+  }
+
+  .word,
+  .right-answer {
+    font-size: 22px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+
+.result-list {
+  display: flex;
+  height: 100%;
+
+  .correct-words,
+  .wrong-words {
+    flex: 0 0 50%;
+    color: white;
+    padding: 10px;
+  }
+
+  .correct-words {
+    background-color: green;
+  }
+
+  .wrong-words {
+    background-color: red;
+  }
+}
+
+ion-footer {
+  ion-list.list {
+    margin-bottom: 0;
+  }
+}
