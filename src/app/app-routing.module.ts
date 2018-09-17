@@ -4,16 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'categories',
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
     path: 'categories',
-    loadChildren: './list/list.module#ListPageModule'
+    loadChildren: './categories/categories.module#CategoriesPageModule'
   },
   { path: 'play/:category',
     loadChildren: './play/play.module#PlayPageModule'
@@ -21,6 +17,10 @@ const routes: Routes = [
   {
     path: 'upload',
     loadChildren: './upload/upload.module#UploadPageModule'
+  },
+  {
+    path: 'words-list',
+    loadChildren: './words-list/words-list.module#WordsListPageModule'
   },
 ];
 

@@ -6,10 +6,10 @@ import { Category } from '../../interfaces/category.interface';
 
 @Component({
   selector: 'app-list',
-  templateUrl: 'list.page.html',
-  styleUrls: ['list.page.scss']
+  templateUrl: 'categories.page.html',
+  styleUrls: ['categories.page.scss']
 })
-export class ListPage implements OnInit {
+export class CategoriesPage implements OnInit {
   private categoryCollection: AngularFirestoreCollection<Category>;
   public categories: Observable<Category[]>;
 

@@ -5,3 +5,8 @@ export interface Word {
   translate: string;
   translate_language: string;
 }
+
+export interface WordWithCounter extends Word {
+  correct?: number;
+  wrong?: number;
+}

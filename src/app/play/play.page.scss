@@ -28,22 +28,20 @@
 }
 
 .result-list {
-  display: flex;
   height: 100%;
 
-  .correct-words,
-  .wrong-words {
-    flex: 0 0 50%;
-    color: white;
-    padding: 10px;
+  .correct,
+  .wrong {
+    font-weight: 800;
+    padding: 5px;
   }
 
-  .correct-words {
-    background-color: green;
+  .correct {
+    color: green;
   }
 
-  .wrong-words {
-    background-color: red;
+  .wrong {
+    color: red;
   }
 }
 
